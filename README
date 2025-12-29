@@ -1,0 +1,54 @@
+READ THIS FILE completely before doing anything.
+
+The minimal number of files in this folder are
+
+Z_ll.root
+ana.cpp
+delZAna.h
+delZAna.C
+LinkDef.h
+COMPILEIT
+and this README
+
+Z_ll.root is an input ntuple. It contains simulation
+events (1000 events, to be precise).
+
+As the name suggests it is simulation of a specific process,
+the DY process. Eventually you will replace it with your
+own file.
+
+The main code (which does analysis and fills histograms) is
+in the delZAna class. This class is declared and described in
+delZAna.h and delZAna.C
+
+ana.cpp is a driver script.
+
+After all editing is done, we compile it all into a program
+called ana by running two commands. These are given in
+COMPILEIT. So edit the code (delZAna), then at the command prompt, type
+
+>source COMPILEIT
+(This will produce more files, as well as a program called ana)
+Run the program ana as follows
+
+>./ana 1
+(That is 'dot slash ana numeral-one')
+
+This will produce output files hst_Zee.root and sum_Zee.root
+
+
+Now at runtime, the code needs to know where to find libDelphes.so
+This is done by adding the folder to LD_LIBRARY_PATH as follows
+>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/sdube/Sourabh/Work/MCGeneration/delphes_git
+
+I just added this line to my .bashrc file (you should change the last part
+to wherever you have installed Delphes)
+
+This has to be changed in the COMPILEIT file too.. the location
+of your delphes_git folder has to be replaced in three places
+in the COMPILEIT file.
+
+
+
+
+
